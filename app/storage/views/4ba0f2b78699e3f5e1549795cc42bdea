@@ -1,0 +1,45 @@
+<?php $__env->startSection('title'); ?>
+	Login
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('panel'); ?>
+	Enter Details To Login
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('top'); ?>
+	<h2> Akhbar Print : Login</h2>
+               
+     <h5>( Login yourself to get access )</h5>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+                             <?php if(Session::has('pesan_error')): ?>
+									   <div class="alert alert-danger"><?php echo Session::get('pesan_error'); ?></div>
+									 <?php endif; ?>
+                            <?php echo Form::open(array('action' => 'UserController@authenticate', 'role' => 'form')); ?>
+                                
+                                       <br />
+                                     <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>                                           
+                                            <?php echo Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email' )); ?>
+                                        </div>
+                                          <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+                                           <?php echo Form::password('pass', array('class' => 'form-control','placeholder' => 'password')); ?>
+                                        </div>
+                                    <div class="form-group">
+                                            
+                                            <span class="pull-right">
+                                                   <a href="#" >Forget password ? </a> 
+                                            </span>
+                                        </div>
+                                     
+                                    <?php echo Form::submit('Login', array('class' => 'btn btn-primary')); ?>
+
+
+                                    <hr />Not register ?
+                                    <?php echo link_to_action('UserController@registrasi', 'click here'); ?>
+                                     
+                                   <?php echo Form::close(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('front', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,35 @@
+
+<?php $__env->startSection('content'); ?>
+
+<div class='container'>
+
+<h3>Edit book</h3>
+
+ <?php echo Form::open(array('action' => 'BookController@update')); ?>
+
+ <?php echo Form::hidden('id', $book->id); ?>
+
+ <?php echo Form::label('title', 'Title'); ?>
+
+ <?php echo Form::text('title', $book->title , array('class' => 'form-control')); ?>
+
+ <?php echo Form::label('author', 'Author'); ?>
+
+ <?php echo Form::text('author', $book->author , array('class' => 'form-control')); ?>
+
+ <?php echo Form::label('description', 'Description'); ?>
+
+ <?php echo Form::textarea('description', $book->description , array('class' => 'form-control')); ?>
+
+ <?php echo Form::label('price', 'Price'); ?>
+
+ <?php echo Form::text('price', $book->price , array('class' => 'form-control')); ?>
+
+ <?php echo Form::submit('Update', array('class' => 'btn btn-primary')); ?>
+
+ <?php echo Form::close(); ?>
+
+ </div>
+
+ <?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

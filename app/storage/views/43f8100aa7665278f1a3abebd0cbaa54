@@ -1,0 +1,24 @@
+
+<?php $__env->startSection('content'); ?>
+<section class="container">
+ <table class="table">
+    <tr>
+       <th>Title</th>
+       <th>Author</th>
+       <th>Description</th>
+       <th>Price</th>
+        <th>#</th>
+    </tr>
+    <?php foreach($booksdata as $book): ?>
+      <tr>
+         <td><?php echo $book->title; ?></td>
+         <td><?php echo $book->author; ?></td>
+         <td><?php echo $book->description; ?></td>
+         <td><?php echo $book->price; ?></td>
+         <td><?php echo link_to_action('BookController@edit', 'edit', array($book->id)); ?> | <?php echo link_to_action('BookController@delete', 'delete', array($book->id)); ?></td>
+      </tr>
+    <?php endforeach; ?>
+ </table>
+</section>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

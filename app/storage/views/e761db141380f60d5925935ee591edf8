@@ -1,0 +1,26 @@
+
+<?php $__env->startSection('content'); ?>
+	<div class="container">
+		<div class"panel">
+			<div class="panel-heading"> Create new product</div>
+				<div class="panel-body">
+					<?php echo Form::open(array('action' => 'ProductController@store','class' => 'bs-example form-horizontal',)); ?>
+					
+					<?php echo Form::Text('product_name', 'Product name', array('class' => 'form-control')); ?>
+
+					<?php echo $errors->first('product_name', '<div class="alert alert-danger"><b>:message</b></div> '); ?>
+
+					<?php echo Form::Textarea('product_desc','Product Description', array('class' => 'form-control')); ?>
+
+					<?php echo $errors->first('product_desc', '<div class="alert alert-danger"><b>:message</b></div> '); ?>
+
+					 <?php echo Form::submit('Submit', array('class' => 'btn btn-primary')); ?>
+				
+					<?php echo Form::close(); ?>
+				</div>
+
+		</div>
+	</div>
+
+
+<?php echo $__env->make('layout.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
